@@ -11,7 +11,7 @@ export const site = {
   github: {
     label: "GitHub",
     /** PLACEHOLDER: add GitHub profile URL when available */
-    href: undefined as string | undefined,
+    href: "https://github.com/darshansrinivasa",
   },
   resume: {
     label: "Download Resume",
