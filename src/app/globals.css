@@ -71,7 +71,7 @@
   --spacing-stack-md: 32px;
   --spacing-stack-lg: 48px;
   --spacing-grid-gutter: 24px;
-  --spacing-section-gap: 120px;
+  /* section-gap is defined via @utility below (60px mobile / 120px desktop) */
 
   /* Border radius — Stitch ROUND_FOUR scale */
   --radius-sm: 0.125rem;
@@ -142,6 +142,66 @@
 
   @media (width >= 48rem) {
     margin-inline: 40px;
+  }
+}
+
+/*
+ * Responsive section gaps — @theme inline bakes static values into utilities,
+ * so section-gap must be defined here for mobile (60px) / desktop (120px).
+ */
+@utility mb-section-gap {
+  margin-bottom: 60px;
+
+  @media (width >= 48rem) {
+    margin-bottom: 120px;
+  }
+}
+
+@utility mb-section-gap-2 {
+  margin-bottom: 60px;
+}
+
+@utility mt-section-gap {
+  margin-top: 60px;
+
+  @media (width >= 48rem) {
+    margin-top: 120px;
+  }
+}
+
+@utility pb-section-gap {
+  padding-bottom: 60px;
+
+  @media (width >= 48rem) {
+    padding-bottom: 120px;
+  }
+}
+
+@utility py-section-gap {
+  padding-block: 60px;
+
+  @media (width >= 48rem) {
+    padding-block: 120px;
+  }
+}
+
+@utility gap-section-gap {
+  gap: 60px;
+
+  @media (width >= 48rem) {
+    gap: 120px;
+  }
+}
+
+@utility space-y-section-gap {
+  & > :not(:last-child) {
+    margin-bottom: 60px;
+  }
+
+  @media (width >= 48rem) {
+    & > :not(:last-child) {
+      margin-bottom: 120px;
+    }
   }
 }
 

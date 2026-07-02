@@ -18,10 +18,10 @@ export type EducationEntry = {
 export const aboutPage = {
   title: "Building high-performance Shopify storefronts with care.",
   bio: "I'm a Shopify frontend developer with 2.5+ years building high-performance storefronts for D2C and Shopify Plus brands across fashion, skincare, and wellness. I specialize in Shopify Functions, Checkout Extensions, and scalable section-based theme architecture — turning Figma designs into fast, conversion-focused, mobile-first experiences. I've led component library builds that tripled delivery speed and fixed a critical checkout bug that saved a live brand ~₹4L in 48 hours. I care about clean code, pixel-perfect execution, and shipping fast without cutting corners on quality.",
-  mobileTitle: "The craft behind the code.",
-  mobileLead:
-    "Shopify frontend developer focused on checkout extensions, modular theme architecture, and conversion-focused storefront delivery.",
-  timelineEyebrow: "Professional Experience",
+  portrait: {
+    src: "/images/profile-pic.jpeg",
+    alt: "Darshan Srinivasa",
+  },
   timelineTitle: "The Journey",
   timelineSubtitle:
     "Full-time agency roles alongside selective freelance Shopify frontend work for D2C brands.",
@@ -32,21 +32,13 @@ export const aboutPage = {
     linkLabel: "Let's start a conversation",
     href: "/contact",
   },
-  mobileCta: {
-    title: "Ready to elevate your storefront?",
-    description:
-      "Available for Shopify frontend work — reach out or download the resume.",
-    resumeLabel: "Download Resume",
-    contactLabel: "Get in Touch",
-    contactHref: "/contact",
-  },
 } as const;
 
 export const experienceTimeline: ExperienceEntry[] = [
   {
     id: "ecom-experts",
     company: "Ecom Experts",
-    role: "Shopify Frontend Developer",
+    role: "Shopify Fullstack Developer",
     period: "Sep 2024 – Present",
     description:
       "Shopify Functions, checkout UI extensions, and scalable section-based theme architecture for D2C and Shopify Plus brands.",
@@ -56,7 +48,7 @@ export const experienceTimeline: ExperienceEntry[] = [
   {
     id: "solara",
     company: "Solara",
-    role: "Shopify Frontend Developer (Freelance)",
+    role: "Shopify Fullstack Developer (Freelance)",
     period: "Feb 2026 – May 2026",
     description:
       "Freelance Shopify frontend development for solara.in, a D2C kitchen and home brand.",
