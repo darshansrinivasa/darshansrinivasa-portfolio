@@ -18,12 +18,12 @@ export const homeHero = {
   headlineEmphasis: "conversion-focused",
   headlineAfter: "storefronts for D2C & Shopify Plus brands",
   subheadline:
-    "2.5+ years specializing in Shopify Functions, Checkout Extensions, custom sections, and performance optimization — for fashion, skincare, wellness, and lifestyle brands.",
+    "3.5+ years specializing in Shopify Functions, Checkout Extensions, custom sections, and performance optimization — for fashion, skincare, wellness, and lifestyle brands.",
 } as const;
 
 export const homeStats: HomeStat[] = [
   {
-    value: "8+",
+    value: "50+",
     label: "Shopify Plus storefronts",
   },
   {

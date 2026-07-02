@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Project } from "@/content/projects";
-import { ProjectImagePlaceholder } from "@/components/ui/ProjectImagePlaceholder";
+import { ProjectThumbnail } from "@/components/ui/ProjectThumbnail";
 import { ProjectTag } from "@/components/ui/ProjectTag";
 import { cn } from "@/lib/cn";
 
@@ -29,10 +29,12 @@ export function ProjectListCard({ project }: ProjectListCardProps) {
   if (isFull) {
     return (
       <article className="project-card group flex flex-col items-center gap-stack-md rounded-xl bg-surface-container-low p-5 transition-all duration-500 md:col-span-12 md:flex-row md:p-8">
-        <div className="project-image aspect-video w-full overflow-hidden rounded-lg md:w-1/2">
-          <ProjectImagePlaceholder
-            alt={`${project.title} project screenshot placeholder`}
-            className="h-full w-full object-cover"
+        <div className="project-image relative aspect-video w-full overflow-hidden rounded-lg md:w-1/2">
+          <ProjectThumbnail
+            slug={project.slug}
+            title={project.title}
+            sizes="(max-width: 768px) 100vw, 50vw"
+            imageClassName="h-full w-full object-cover"
           />
         </div>
         <div className="w-full md:w-1/2">
@@ -63,13 +65,15 @@ export function ProjectListCard({ project }: ProjectListCardProps) {
     >
       <div
         className={cn(
-          "project-image mb-stack-sm overflow-hidden rounded-lg aspect-video",
+          "project-image relative mb-stack-sm overflow-hidden rounded-lg aspect-video",
           !isLarge && "md:aspect-square",
         )}
       >
-        <ProjectImagePlaceholder
-          alt={`${project.title} project screenshot placeholder`}
-          className="h-full w-full object-cover"
+        <ProjectThumbnail
+          slug={project.slug}
+          title={project.title}
+          sizes={isLarge ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
+          imageClassName="h-full w-full object-cover"
         />
       </div>
       <div className="mb-base flex flex-wrap gap-2">

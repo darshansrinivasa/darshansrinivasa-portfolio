@@ -197,12 +197,6 @@
   & > :not(:last-child) {
     margin-bottom: 60px;
   }
-
-  @media (width >= 48rem) {
-    & > :not(:last-child) {
-      margin-bottom: 120px;
-    }
-  }
 }
 
 @layer base {

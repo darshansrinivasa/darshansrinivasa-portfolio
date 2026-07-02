@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { Project } from "@/content/projects";
-import { ProjectImagePlaceholder } from "@/components/ui/ProjectImagePlaceholder";
+import { ProjectThumbnail } from "@/components/ui/ProjectThumbnail";
 import { ProjectTag } from "@/components/ui/ProjectTag";
 
 type FeaturedProjectCardProps = {
@@ -13,10 +13,11 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
       href={`/projects/${project.slug}`}
       className="group block cursor-pointer"
     >
-      <div className="relative mb-stack-sm aspect-video overflow-hidden rounded-lg bg-surface-container md:aspect-[4/5]">
-        <ProjectImagePlaceholder
-          alt={`${project.title} project screenshot placeholder`}
-          className="transition-transform duration-700 group-hover:scale-105"
+      <div className="relative mb-stack-sm aspect-video overflow-hidden rounded-lg bg-surface-container">
+        <ProjectThumbnail
+          slug={project.slug}
+          title={project.title}
+          imageClassName="transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-primary/10 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </div>
