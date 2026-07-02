@@ -8,69 +8,31 @@ export function HomeFeaturedProjects() {
   const featuredProjects = getFeaturedProjects();
 
   return (
-    <>
-      {/* Desktop */}
-      <section
-        id="projects"
-        className="hidden py-section-gap md:block"
-      >
-        <Container>
-          <div className="mb-stack-lg flex items-end justify-between">
-            <div className="space-y-2">
-              <span className="font-label-md text-label-md uppercase tracking-widest text-primary">
-                {homeFeatured.eyebrow}
-              </span>
-              <h2 className="font-headline-lg text-headline-lg">
-                {homeFeatured.title}
-              </h2>
-            </div>
-            <Link
-              href={homeFeatured.archiveHref}
-              className="mb-2 font-label-md text-label-md editorial-underline"
-            >
-              {homeFeatured.archiveLabel}
-            </Link>
+    <section id="projects" className="py-section-gap">
+      <Container>
+        <div className="mb-stack-lg flex items-end justify-between">
+          <div className="space-y-2">
+            <span className="font-label-md text-[12px] uppercase tracking-widest text-primary md:text-label-md">
+              {homeFeatured.eyebrow}
+            </span>
+            <h2 className="font-headline-lg-mobile text-headline-lg-mobile leading-tight md:font-headline-lg md:text-headline-lg">
+              {homeFeatured.title}
+            </h2>
           </div>
-
-          <div className="grid grid-cols-1 gap-grid-gutter md:grid-cols-3">
-            {featuredProjects.map((project) => (
-              <FeaturedProjectCard
-                key={project.slug}
-                project={project}
-                layout="portrait"
-              />
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Mobile */}
-      <section className="px-grid-margin pb-section-gap md:hidden">
-        <div className="mb-8 flex items-end justify-between">
-          <h2 className="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">
-            Featured
-            <br />
-            Works
-          </h2>
           <Link
             href={homeFeatured.archiveHref}
-            className="flex items-center gap-2 font-label-md text-label-md text-primary"
+            className="mb-2 shrink-0 font-label-md text-[12px] editorial-underline md:text-label-md"
           >
-            {homeFeatured.mobileViewAllLabel}
-            <span className="material-symbols-outlined">arrow_right_alt</span>
+            {homeFeatured.archiveLabel}
           </Link>
         </div>
 
-        <div className="flex flex-col gap-stack-lg">
+        <div className="grid grid-cols-1 gap-stack-lg md:grid-cols-3 md:gap-grid-gutter">
           {featuredProjects.map((project) => (
-            <FeaturedProjectCard
-              key={project.slug}
-              project={project}
-              layout="square"
-            />
+            <FeaturedProjectCard key={project.slug} project={project} />
           ))}
         </div>
-      </section>
-    </>
+      </Container>
+    </section>
   );
 }

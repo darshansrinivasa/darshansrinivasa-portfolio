@@ -9,7 +9,6 @@ export type HomeService = {
   icon: string;
   title: string;
   description: string;
-  tags?: string[];
   variant?: "default" | "primary" | "tertiary";
 };
 
@@ -74,38 +73,11 @@ export const homeServicesDesktop: HomeService[] = [
   },
 ];
 
-export const homeServicesMobile: HomeService[] = [
-  {
-    icon: "extension",
-    title: "Checkout Extensions",
-    description:
-      "Custom checkout UI extensions for validations, upsells, and smoother purchase flows on Shopify Plus.",
-    tags: ["Liquid", "JavaScript"],
-    variant: "default",
-  },
-  {
-    icon: "speed",
-    title: "Performance Optimization",
-    description:
-      "Liquid and frontend optimization focused on site speed, maintainability, and conversion-aligned storefront performance.",
-    variant: "primary",
-  },
-  {
-    icon: "design_services",
-    title: "Section Architecture",
-    description:
-      "Scalable Online Store 2.0 sections and reusable component libraries built for faster theme delivery.",
-    variant: "tertiary",
-  },
-];
-
 export const homeFeatured = {
   eyebrow: "Selected Work",
   title: "Featured Projects",
   archiveLabel: "View Portfolio Archive",
   archiveHref: "/projects",
-  mobileTitle: "Featured Works",
-  mobileViewAllLabel: "View All",
 } as const;
 
 export const homeCta = {
