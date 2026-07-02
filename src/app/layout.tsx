@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SiteShell } from "@/components/layout/SiteShell";
 import { fontVariables } from "@/lib/fonts";
 import "./globals.css";
 
@@ -31,7 +32,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-body-md text-body-md text-on-surface bg-background selection:bg-primary-fixed selection:text-on-primary-fixed">
-        {children}
+        <SiteShell>{children}</SiteShell>
       </body>
     </html>
   );
