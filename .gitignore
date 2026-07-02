@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/Content-help
+Darshan.pdf
+portfolio-spec.md
+stitch.md
