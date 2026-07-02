@@ -23,7 +23,7 @@ export const contactPage = {
     errorMessage:
       "Something went wrong while sending your message. Please try again or email me directly.",
   },
-  imageCaption: "Available for Shopify frontend partnerships",
+  imageCaption: "Available for Shopify partnerships",
   links: [
     {
       id: "email",
@@ -62,4 +62,4 @@ export const contactPage = {
 } as const;
 
 export const contactMetadataDescription =
-  "Contact Darshan S — email, LinkedIn, GitHub, and resume download for Shopify frontend work and consultations.";
+  "Contact Darshan S — email, LinkedIn, GitHub, and resume download for Shopify work and consultations.";

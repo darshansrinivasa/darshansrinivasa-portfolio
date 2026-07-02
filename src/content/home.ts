@@ -14,7 +14,7 @@ export type HomeService = {
 
 export const homeHero = {
   eyebrow: site.title,
-  headlineBefore: "Shopify Frontend Developer building fast,",
+  headlineBefore: "Shopify Developer building fast,",
   headlineEmphasis: "conversion-focused",
   headlineAfter: "storefronts for D2C & Shopify Plus brands",
   subheadline:
@@ -82,7 +82,7 @@ export const homeFeatured = {
 
 export const homeCta = {
   title: "Let's craft something exceptional.",
-  description: "Available for Shopify frontend work, consultations, and senior-level partnerships.",
+  description: "Available for Shopify work, consultations, and senior-level partnerships.",
   buttonLabel: "Get in Touch",
   href: "/contact",
 } as const;

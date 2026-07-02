@@ -17,10 +17,10 @@ export type EducationEntry = {
 
 export const aboutPage = {
   title: "Building high-performance Shopify storefronts with care.",
-  bio: "I'm a Shopify frontend developer with 3.5+ years building high-performance storefronts for D2C and Shopify Plus brands across fashion, skincare, and wellness. I specialize in Shopify Functions, Checkout Extensions, and scalable section-based theme architecture — turning Figma designs into fast, conversion-focused, mobile-first experiences. I've led component library builds that tripled delivery speed and fixed a critical checkout bug that saved a live brand ~₹4L in 6 hours. I care about clean code, pixel-perfect execution, and shipping fast without cutting corners on quality.",
+  bio: "I'm a senior Shopify developer with 3.5+ years building high-performance storefronts for D2C and Shopify Plus brands across fashion, skincare, and wellness. I specialize in Shopify Functions, Checkout Extensions, and scalable section-based theme architecture — turning Figma designs into fast, conversion-focused, mobile-first experiences. I've led component library builds that tripled delivery speed and fixed a critical checkout bug that saved a live brand ~₹4L in 6 hours. I care about clean code, pixel-perfect execution, and shipping fast without cutting corners on quality.",
   timelineTitle: "The Journey",
   timelineSubtitle:
-    "Full-time agency roles alongside selective freelance Shopify frontend work for D2C brands.",
+    "Full-time agency roles alongside selective freelance Shopify work for D2C brands.",
   educationTitle: "Academic Foundation",
   educationDegreeLabel: "Degree",
   cta: {

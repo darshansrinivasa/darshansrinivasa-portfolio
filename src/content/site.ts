@@ -1,8 +1,8 @@
 export const site = {
   name: "Darshan S",
-  title: "Senior Shopify Frontend Developer",
+  title: "Senior Shopify Developer",
   tagline:
-    "Shopify Frontend Developer building fast, conversion-focused storefronts for D2C & Shopify Plus brands",
+    "Senior Shopify Developer building fast, conversion-focused storefronts for D2C & Shopify Plus brands",
   email: "darshansrinivasa034@gmail.com",
   linkedIn: {
     label: "LinkedIn",
@@ -17,5 +17,5 @@ export const site = {
     label: "Download Resume",
     href: "/resume.pdf",
   },
-  copyright: `© ${new Date().getFullYear()} Darshan S | Senior Shopify Frontend Developer`,
+  copyright: `© ${new Date().getFullYear()} Darshan S | Senior Shopify Developer`,
 } as const;

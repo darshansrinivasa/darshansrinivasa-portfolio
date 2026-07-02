@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { SiteShell } from "@/components/layout/SiteShell";
+import { site } from "@/content/site";
 import { fontVariables } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Darshan S | Senior Shopify Frontend Developer",
+    default: `Darshan S | ${site.title}`,
     template: "%s | Darshan S",
   },
-  description:
-    "Shopify Frontend Developer building fast, conversion-focused storefronts for D2C & Shopify Plus brands.",
+  description: site.tagline,
 };
 
 export default function RootLayout({
