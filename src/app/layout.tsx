@@ -5,8 +5,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Darshan S. | Senior Shopify Frontend Developer",
-    template: "%s | Darshan S.",
+    default: "Darshan S | Senior Shopify Frontend Developer",
+    template: "%s | Darshan S",
   },
   description:
     "Shopify Frontend Developer building fast, conversion-focused storefronts for D2C & Shopify Plus brands.",

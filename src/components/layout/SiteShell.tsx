@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { MobileMenu } from "./MobileMenu";
-import { MobileBottomNav } from "./MobileBottomNav";
 
 type SiteShellProps = {
   children: ReactNode;
@@ -45,12 +44,11 @@ export function SiteShell({ children }: SiteShellProps) {
         onClose={() => setIsMenuOpen(false)}
       />
 
-      <div className="flex min-h-screen flex-col pt-24 pb-28 md:pb-0">
+      <div className="flex min-h-screen flex-col pt-20 pb-0">
         {children}
         <SiteFooter />
       </div>
 
-      <MobileBottomNav pathname={pathname} />
     </>
   );
 }

@@ -48,4 +48,4 @@ export const contactPage = {
 } as const;
 
 export const contactMetadataDescription =
-  "Contact Darshan S. — email, LinkedIn, GitHub, and resume download for Shopify frontend work and consultations.";
+  "Contact Darshan S — email, LinkedIn, GitHub, and resume download for Shopify frontend work and consultations.";

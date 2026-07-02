@@ -4,7 +4,7 @@ import { Container } from "./Container";
 
 export function SiteFooter() {
   return (
-    <footer className="w-full bg-secondary-container py-stack-lg pb-28 md:pb-stack-lg">
+    <footer className="w-full bg-secondary-container py-stack-lg pb-stack-lg">
       <Container className="flex flex-col items-center justify-between gap-base md:flex-row md:items-center">
         <div className="flex flex-col items-center gap-2 md:items-start">
           <span className="font-headline-md text-headline-md text-on-secondary-container">

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /*
- * Editorial Craft — design tokens from Stitch "Darshan S. Portfolio Design"
+ * Editorial Craft — design tokens from Stitch "Darshan S Portfolio Design"
  * https://stitch.withgoogle.com/
  */
 
@@ -70,7 +70,6 @@
   --spacing-stack-sm: 16px;
   --spacing-stack-md: 32px;
   --spacing-stack-lg: 48px;
-  --spacing-grid-margin: 40px;
   --spacing-grid-gutter: 24px;
   --spacing-section-gap: 120px;
 
@@ -124,6 +123,26 @@
 
   /* Layout */
   --container-7xl: 80rem;
+}
+
+/*
+ * Responsive page gutters — @theme inline bakes static values into utilities,
+ * so grid-margin must be defined here for mobile (24px) / desktop (40px).
+ */
+@utility px-grid-margin {
+  padding-inline: 24px;
+
+  @media (width >= 48rem) {
+    padding-inline: 40px;
+  }
+}
+
+@utility mx-grid-margin {
+  margin-inline: 24px;
+
+  @media (width >= 48rem) {
+    margin-inline: 40px;
+  }
 }
 
 @layer base {
