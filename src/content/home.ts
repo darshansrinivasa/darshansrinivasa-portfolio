@@ -32,7 +32,7 @@ export const homeStats: HomeStat[] = [
   },
   {
     value: "₹4L",
-    label: "revenue saved in 48hrs",
+    label: "revenue saved in 6hrs",
   },
   {
     value: "7–10",
