@@ -1,118 +1,11 @@
 import { contactPage } from "@/content/contact";
 import { site } from "@/content/site";
 import { Container } from "@/components/layout/Container";
-
-type ContactLinkConfig = (typeof contactPage.links)[number];
-
-function getLinkHref(link: ContactLinkConfig): string | undefined {
-  if (link.id === "email") {
-    return link.getHref(site.email);
-  }
-
-  if ("hrefKey" in link && link.hrefKey) {
-    const value = site[link.hrefKey];
-    return typeof value === "object" && value && "href" in value
-      ? value.href
-      : undefined;
-  }
-
-  return undefined;
-}
-
-function getLinkDisplay(link: ContactLinkConfig): string {
-  if (link.id === "email") {
-    return site.email;
-  }
-
-  if (link.id === "linkedin") {
-    return "linkedin.com/in/darshan-srinivasa";
-  }
-
-  if (link.id === "resume") {
-    return site.resume.label;
-  }
-
-  if (link.id === "github" && site.github.href) {
-    return site.github.href.replace(/^https?:\/\//, "");
-  }
-
-  return link.label;
-}
-
-function ContactLinkRow({ link }: { link: ContactLinkConfig }) {
-  const href = getLinkHref(link);
-  const display = getLinkDisplay(link);
-
-  const content = (
-    <>
-      <span className="material-symbols-outlined shrink-0 text-[20px] text-primary md:text-[24px]">
-        {link.icon}
-      </span>
-      <div className="min-w-0 flex-1">
-        <p className="font-label-md text-label-md text-on-surface">{link.label}</p>
-        <p className="mt-0.5 break-all font-body-md text-[14px] leading-snug text-on-surface-variant md:mt-0 md:break-normal md:text-body-md">
-          {display}
-        </p>
-        <p className="mt-1 font-body-md text-[13px] leading-snug text-on-surface-variant/80 md:text-body-md md:leading-normal">
-          {link.description}
-        </p>
-      </div>
-      <span className="material-symbols-outlined shrink-0 text-[20px] text-on-surface-variant transition-transform group-hover:translate-x-1 md:text-[24px]">
-        arrow_forward
-      </span>
-    </>
-  );
-
-  const className =
-    "group flex items-center gap-3 border-b border-outline-variant/30 py-3 transition-colors last:border-b-0 hover:text-primary md:gap-stack-sm md:py-stack-sm";
-
-  if (!href) {
-    return (
-      <div className={className} title="Add URL in src/content/site.ts">
-        <span className="material-symbols-outlined shrink-0 text-[20px] text-primary opacity-60 md:text-[24px]">
-          {link.icon}
-        </span>
-        <div className="min-w-0 flex-1 opacity-60">
-          <p className="font-label-md text-label-md">{link.label}</p>
-          <p className="mt-0.5 font-body-md text-[14px] leading-snug text-on-surface-variant md:mt-0 md:text-body-md">
-            [Add {link.label} URL]
-          </p>
-        </div>
-      </div>
-    );
-  }
-
-  if (link.external) {
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={className}
-      >
-        {content}
-      </a>
-    );
-  }
-
-  if ("download" in link && link.download) {
-    return (
-      <a href={href} download className={className}>
-        {content}
-      </a>
-    );
-  }
-
-  return (
-    <a href={href} className={className}>
-      {content}
-    </a>
-  );
-}
+import { ContactForm } from "@/components/sections/contact/ContactForm";
 
 export function ContactPageContent() {
   return (
-    <main className="flex-1 pb-section-gap pt-8 md:pt-0 pb-stack-lg">
+    <main className="flex-1 pb-section-gap pt-8 pb-stack-lg md:pt-0">
       <Container className="md:pt-stack-lg">
         <div className="grid grid-cols-1 items-start gap-stack-md md:grid-cols-12 md:gap-grid-gutter">
           <div className="space-y-stack-md md:col-span-5 md:space-y-stack-lg">
@@ -153,26 +46,26 @@ export function ContactPageContent() {
                   LinkedIn / in/darshan-srinivasa
                 </a>
               </div>
+              <div className="pt-stack-sm">
+                <div className="flex items-center justify-center gap-base text-on-surface-variant md:justify-start">
+                  <span
+                    className="material-symbols-outlined text-[20px] text-primary md:text-[24px]"
+                    style={{ fontVariationSettings: "'FILL' 1" }}
+                  >
+                    location_on
+                  </span>
+                  <span className="font-label-md text-[13px] text-label-md md:text-label-md">
+                    {contactPage.locationLabel}
+                  </span>
+                </div>
+              </div>
             </div>
           </div>
 
           <div className="rounded-lg bg-surface-container-low p-5 shadow-sm shadow-primary/5 md:col-span-6 md:col-start-7 md:p-stack-md lg:p-stack-lg">
-            <div className="mb-stack-sm md:mb-stack-md">
-              <h2 className="font-headline-md text-[24px] leading-snug text-on-surface md:text-headline-md md:leading-normal">
-                {contactPage.connectTitle}
-              </h2>
-              <p className="mt-1.5 font-body-md text-[14px] leading-relaxed text-on-surface-variant md:mt-2 md:text-body-md md:leading-normal">
-                {contactPage.connectDescription}
-              </p>
-            </div>
-            <div className="flex flex-col">
-              {contactPage.links.map((link) => (
-                <ContactLinkRow key={link.id} link={link} />
-              ))}
-            </div>
+            <ContactForm />
           </div>
         </div>
-
       </Container>
     </main>
   );

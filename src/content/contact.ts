@@ -6,9 +6,23 @@ export const contactPage = {
   description: homeCta.description,
   emailLabel: "Direct Email",
   linkedInLabel: "Professional Network",
-  connectTitle: "Connect",
-  connectDescription:
-    "Reach out via email or LinkedIn, browse GitHub, or download the resume.",
+  locationLabel: "Based in Bangalore, India — Working Globally",
+  form: {
+    nameLabel: "Full Name",
+    namePlaceholder: "E.g. Julianne Moore",
+    emailLabel: "Email Address",
+    emailPlaceholder: "julianne@boutique.com",
+    projectTypeLabel: "Project Type",
+    messageLabel: "Message",
+    messagePlaceholder: "Tell me about your vision and objectives...",
+    submitLabel: "Send Inquiry",
+    submittingLabel: "Sending...",
+    successTitle: "Message sent",
+    successMessage:
+      "Thanks for reaching out. I'll get back to you within 1–2 business days.",
+    errorMessage:
+      "Something went wrong while sending your message. Please try again or email me directly.",
+  },
   imageCaption: "Available for Shopify frontend partnerships",
   links: [
     {

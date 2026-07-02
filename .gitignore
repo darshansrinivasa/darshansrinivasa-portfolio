@@ -40,7 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/Content-help
-Darshan.pdf
-portfolio-spec.md
-stitch.md
+# Local dev reference — not for production
+Content-help/
+content-help/
+**/Content-help/**
+**/content-help/**
