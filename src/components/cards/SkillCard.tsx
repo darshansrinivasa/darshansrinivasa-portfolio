@@ -1,8 +1,8 @@
 import type { SkillCategory } from "@/content/skills";
-import { SkillTag, type SkillTagVariant } from "@/components/ui/SkillTag";
+import { SkillTag } from "@/components/ui/SkillTag";
 import { cn } from "@/lib/cn";
 
-const desktopCardStyles: Record<
+const cardStyles: Record<
   SkillCategory["desktopVariant"],
   { card: string; heading: string; body?: string }
 > = {
@@ -36,37 +36,7 @@ const desktopCardStyles: Record<
   },
 };
 
-const mobileCardStyles: Record<
-  SkillCategory["mobileVariant"],
-  { card: string; chip: SkillTagVariant }
-> = {
-  secondary: {
-    card: "bg-secondary-container/30",
-    chip: "mobile-secondary",
-  },
-  surface: {
-    card: "bg-surface-container-low",
-    chip: "mobile-surface",
-  },
-  primary: {
-    card: "bg-primary-fixed/20",
-    chip: "mobile-primary",
-  },
-  tertiary: {
-    card: "bg-tertiary-fixed/30",
-    chip: "mobile-tertiary",
-  },
-  analytics: {
-    card: "bg-surface-container-low",
-    chip: "mobile-surface",
-  },
-  practices: {
-    card: "bg-on-secondary-fixed/5",
-    chip: "mobile-surface",
-  },
-};
-
-const desktopColSpanClasses: Record<SkillCategory["desktopColSpan"], string> = {
+const colSpanClasses: Record<SkillCategory["desktopColSpan"], string> = {
   4: "md:col-span-4",
   5: "md:col-span-5",
   6: "md:col-span-6",
@@ -74,24 +44,20 @@ const desktopColSpanClasses: Record<SkillCategory["desktopColSpan"], string> = {
   8: "md:col-span-8",
 };
 
-type SkillCardDesktopProps = {
+type SkillCardProps = {
   category: SkillCategory;
 };
 
-type SkillCardMobileProps = {
-  category: SkillCategory;
-};
-
-export function SkillCardDesktop({ category }: SkillCardDesktopProps) {
-  const styles = desktopCardStyles[category.desktopVariant];
+export function SkillCard({ category }: SkillCardProps) {
+  const styles = cardStyles[category.desktopVariant];
 
   return (
     <div
       className={cn(
-        "skill-card flex flex-col rounded-xl p-stack-md",
+        "skill-card flex flex-col rounded-xl p-5 md:p-stack-md",
         styles.card,
         category.id === "shopify" ? "justify-between" : "",
-        desktopColSpanClasses[category.desktopColSpan],
+        colSpanClasses[category.desktopColSpan],
       )}
     >
       <div className={category.id === "apps" ? "mb-stack-md" : undefined}>
@@ -101,8 +67,12 @@ export function SkillCardDesktop({ category }: SkillCardDesktopProps) {
             styles.heading,
           )}
         >
-          <span className="material-symbols-outlined">{category.icon}</span>
-          <h3 className="font-headline-md text-headline-md">{category.title}</h3>
+          <span className="material-symbols-outlined text-[20px] md:text-[24px]">
+            {category.icon}
+          </span>
+          <h3 className="font-headline-md text-[24px] leading-tight md:text-headline-md">
+            {category.title}
+          </h3>
         </div>
         {category.description ? (
           <p
@@ -123,39 +93,7 @@ export function SkillCardDesktop({ category }: SkillCardDesktopProps) {
         )}
       >
         {category.skills.map((skill) => (
-          <SkillTag key={skill} label={skill} variant="desktop" />
-        ))}
-      </div>
-    </div>
-  );
-}
-
-export function SkillCardMobile({ category }: SkillCardMobileProps) {
-  const styles = mobileCardStyles[category.mobileVariant];
-
-  return (
-    <div
-      className={cn(
-        "editorial-shadow rounded-lg p-6",
-        styles.card,
-      )}
-    >
-      <div className="mb-6 flex items-center gap-3">
-        <span className="material-symbols-outlined text-2xl text-primary">
-          {category.icon}
-        </span>
-        <h2 className="font-headline-md text-2xl text-on-surface">
-          {category.title}
-        </h2>
-      </div>
-      {category.description ? (
-        <p className="mb-4 font-body-md text-on-surface-variant">
-          {category.description}
-        </p>
-      ) : null}
-      <div className="flex flex-wrap gap-2">
-        {category.skills.map((skill) => (
-          <SkillTag key={skill} label={skill} variant={styles.chip} />
+          <SkillTag key={skill} label={skill} />
         ))}
       </div>
     </div>
