@@ -224,6 +224,23 @@
   .nav-open {
     overflow: hidden;
   }
+
+  .project-card {
+    transition: all 0.5s ease;
+  }
+
+  .project-card:hover {
+    background-color: var(--color-secondary-container);
+    box-shadow: 0 20px 40px -20px rgba(130, 147, 132, 0.2);
+  }
+
+  .project-card:hover .project-image {
+    transform: translateY(-4px);
+  }
+
+  .project-image {
+    transition: transform 0.5s ease;
+  }
 }
 
 @layer utilities {
