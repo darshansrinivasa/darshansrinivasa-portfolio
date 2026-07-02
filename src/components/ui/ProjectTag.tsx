@@ -9,26 +9,13 @@ const tagVariants = [
 type ProjectTagProps = {
   label: string;
   index: number;
-  variant?: "desktop" | "mobile";
 };
 
-export function ProjectTag({
-  label,
-  index,
-  variant = "desktop",
-}: ProjectTagProps) {
-  if (variant === "mobile") {
-    return (
-      <span className="bg-secondary-container px-3 py-1 font-label-md text-label-md text-on-secondary-container uppercase">
-        {label}
-      </span>
-    );
-  }
-
+export function ProjectTag({ label, index }: ProjectTagProps) {
   return (
     <span
       className={cn(
-        "rounded-full px-3 py-1 font-label-md text-label-md",
+        "rounded-full px-3 py-1 font-label-md text-[12px] md:text-label-md",
         tagVariants[index % tagVariants.length],
       )}
     >

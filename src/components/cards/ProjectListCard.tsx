@@ -12,7 +12,7 @@ function CaseStudyLink({ slug }: { slug: string }) {
   return (
     <Link
       href={`/projects/${slug}`}
-      className="group/link inline-flex items-center gap-2 border-b border-primary font-label-md text-label-md text-primary transition-all hover:border-b-2"
+      className="group/link inline-flex items-center gap-2 border-b border-primary font-label-md text-[12px] text-primary transition-all hover:border-b-2 md:text-label-md"
     >
       View Case Study
       <span className="material-symbols-outlined text-[18px] transition-transform group-hover/link:translate-x-1">
@@ -22,13 +22,13 @@ function CaseStudyLink({ slug }: { slug: string }) {
   );
 }
 
-export function ProjectListCardDesktop({ project }: ProjectListCardProps) {
+export function ProjectListCard({ project }: ProjectListCardProps) {
   const isFull = project.gridSize === "full";
   const isLarge = project.gridSize === "large";
 
   if (isFull) {
     return (
-      <article className="project-card group flex flex-col items-center gap-stack-md rounded-xl bg-surface-container-low p-8 transition-all duration-500 md:col-span-12 md:flex-row">
+      <article className="project-card group flex flex-col items-center gap-stack-md rounded-xl bg-surface-container-low p-5 transition-all duration-500 md:col-span-12 md:flex-row md:p-8">
         <div className="project-image aspect-video w-full overflow-hidden rounded-lg md:w-1/2">
           <ProjectImagePlaceholder
             alt={`${project.title} project screenshot placeholder`}
@@ -41,7 +41,7 @@ export function ProjectListCardDesktop({ project }: ProjectListCardProps) {
               <ProjectTag key={tag} label={tag} index={index} />
             ))}
           </div>
-          <h3 className="mb-4 font-headline-md text-headline-md text-on-surface">
+          <h3 className="mb-4 font-headline-md text-[24px] leading-tight text-on-surface md:text-headline-md">
             {project.title}
           </h3>
           <p className="mb-stack-sm font-body-md text-body-md text-on-surface-variant">
@@ -57,14 +57,14 @@ export function ProjectListCardDesktop({ project }: ProjectListCardProps) {
     <Link
       href={`/projects/${project.slug}`}
       className={cn(
-        "project-card group cursor-pointer rounded-xl bg-surface-container-low p-6 transition-all duration-500",
+        "project-card group cursor-pointer rounded-xl bg-surface-container-low p-5 transition-all duration-500 md:p-6",
         isLarge ? "md:col-span-8" : "md:col-span-4",
       )}
     >
       <div
         className={cn(
-          "project-image mb-stack-sm overflow-hidden rounded-lg",
-          isLarge ? "aspect-[16/9]" : "aspect-square",
+          "project-image mb-stack-sm overflow-hidden rounded-lg aspect-video",
+          !isLarge && "md:aspect-square",
         )}
       >
         <ProjectImagePlaceholder
@@ -77,7 +77,7 @@ export function ProjectListCardDesktop({ project }: ProjectListCardProps) {
           <ProjectTag key={tag} label={tag} index={index} />
         ))}
       </div>
-      <h3 className="mb-2 font-headline-md text-headline-md text-on-surface">
+      <h3 className="mb-2 font-headline-md text-[24px] leading-tight text-on-surface md:text-headline-md">
         {project.title}
       </h3>
       <p
@@ -89,43 +89,5 @@ export function ProjectListCardDesktop({ project }: ProjectListCardProps) {
         {project.listExcerpt}
       </p>
     </Link>
-  );
-}
-
-export function ProjectListCardMobile({ project }: ProjectListCardProps) {
-  return (
-    <article className="project-card group active:scale-[0.98]">
-      <Link href={`/projects/${project.slug}`} className="block">
-        <div className="mb-6 aspect-[4/5] overflow-hidden bg-surface-container-low">
-          <ProjectImagePlaceholder
-            alt={`${project.title} project screenshot placeholder`}
-            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105 group-active:scale-105"
-          />
-        </div>
-        <div className="mb-4 flex flex-wrap gap-2">
-          {project.tags.map((tag, index) => (
-            <ProjectTag
-              key={tag}
-              label={tag}
-              index={index}
-              variant="mobile"
-            />
-          ))}
-        </div>
-        <h2 className="mb-2 font-headline-md text-headline-md text-on-surface">
-          {project.title}
-        </h2>
-        <p className="mb-6 font-body-md leading-relaxed text-on-surface-variant">
-          {project.listExcerpt}
-        </p>
-      </Link>
-      <Link
-        href={`/projects/${project.slug}`}
-        className="inline-flex items-center gap-2 font-headline-md text-xl editorial-underline"
-      >
-        View Case Study
-        <span className="material-symbols-outlined text-sm">arrow_forward</span>
-      </Link>
-    </article>
   );
 }
