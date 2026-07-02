@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
   aboutPage,
   education,
@@ -7,22 +6,6 @@ import {
 } from "@/content/about";
 import { Container } from "@/components/layout/Container";
 import { cn } from "@/lib/cn";
-
-function PortraitImage() {
-  return (
-    <div className="group relative aspect-[3/4] w-full overflow-hidden rounded-xl bg-surface-container-high shadow-lg shadow-primary/5">
-      <Image
-        src={aboutPage.portrait.src}
-        alt={aboutPage.portrait.alt}
-        fill
-        priority
-        sizes="(max-width: 768px) 100vw, 33vw"
-        className="object-cover transition-transform duration-700 group-hover:scale-105"
-      />
-      <div className="pointer-events-none absolute inset-0 bg-primary/10 opacity-20 mix-blend-multiply" />
-    </div>
-  );
-}
 
 function ExperienceTimeline() {
   return (
@@ -138,19 +121,12 @@ export function AboutPageContent() {
     <main className="flex-1 pb-section-gap pt-8 pb-stack-lg md:pt-0">
       <section className="mb-section-gap">
         <Container className="md:pt-stack-lg">
-          <div className="grid grid-cols-1 items-start gap-stack-md md:grid-cols-12 md:gap-grid-gutter">
-            <div className="md:col-span-8">
-              <h1 className="mb-stack-md font-headline-lg-mobile text-headline-lg-mobile leading-tight text-primary md:font-display-lg md:text-display-lg md:leading-none">
-                {aboutPage.title}
-              </h1>
-              <p className="font-body-md text-body-md leading-relaxed text-on-surface-variant md:max-w-4xl md:font-body-lg md:text-body-lg">
-                {aboutPage.bio}
-              </p>
-            </div>
-            <div className="md:col-span-4 md:flex md:justify-end">
-              <PortraitImage />
-            </div>
-          </div>
+          <h1 className="mb-stack-md font-headline-lg-mobile text-headline-lg-mobile leading-tight text-primary md:font-display-lg md:text-display-lg md:leading-none">
+            {aboutPage.title}
+          </h1>
+          <p className="font-body-md text-body-md leading-relaxed text-on-surface-variant md:max-w-4xl md:font-body-lg md:text-body-lg">
+            {aboutPage.bio}
+          </p>
         </Container>
       </section>
 
