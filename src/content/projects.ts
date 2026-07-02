@@ -68,6 +68,18 @@ export const projects: Project[] = [
     gridSize: "full",
     showCaseStudyLink: true,
   },
+  {
+    slug: "solara-storefront",
+    title: "Solara — D2C Kitchen & Home Storefront",
+    excerpt:
+      "Freelance Shopify frontend development for Solara, a D2C kitchen and home brand.",
+    listExcerpt:
+      "Freelance Shopify frontend development for solara.in — a D2C kitchen, cookware, and home appliances brand — during Feb–May 2026.",
+    tags: ["Shopify", "Liquid", "D2C"],
+    featured: false,
+    gridSize: "small",
+    showCaseStudyLink: true,
+  },
 ];
 
 export function getFeaturedProjects(): Project[] {

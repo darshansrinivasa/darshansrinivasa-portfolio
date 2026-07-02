@@ -260,6 +260,37 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
   },
+  {
+    slug: "solara-storefront",
+    summary:
+      "Freelance Shopify frontend development for Solara, a D2C kitchen and home brand at solara.in.",
+    eyebrow: "Freelance · D2C",
+    meta: {
+      client: "Solara",
+      role: "Shopify Frontend Developer (Freelance)",
+      timeline: "Feb 2026 – May 2026",
+      services: "Frontend Development",
+    },
+    techStack: ["Liquid", "JavaScript", "TailwindCSS", "Shopify Online Store 2.0"],
+    liveUrl: "https://www.solara.in/",
+    phases: [
+      {
+        label: "Problem",
+        title: "Frontend support for a growing D2C brand",
+        body: "Solara, a D2C kitchen and home brand, needed freelance Shopify frontend development support for their live storefront.",
+      },
+      {
+        label: "Action",
+        title: "Freelance storefront development",
+        body: "Delivered freelance Shopify frontend development for solara.in during the Feb–May 2026 engagement. [Add specific deliverables — sections, features, or maintenance scope.]",
+      },
+      {
+        label: "Result",
+        title: "Live storefront",
+        body: "Contributed frontend development work to a live D2C storefront serving kitchen, cookware, and home appliance shoppers across India.",
+      },
+    ],
+  },
 ];
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {
