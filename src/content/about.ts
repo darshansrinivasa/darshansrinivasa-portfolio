@@ -47,7 +47,7 @@ export const experienceTimeline: ExperienceEntry[] = [
     role: "Shopify Fullstack Developer (Freelance)",
     period: "Feb 2026 – May 2026",
     description:
-      "Shopify development work for solara — homepage revamp that lifted performance from 36 to 92, plus a PDP preorder template build for a D2C kitchen and home brand.",
+      "Freelance theme revamp for Solara — homepage performance lift from 36 to 92 and a custom PDP preorder template for a D2C kitchen and home brand.",
     engagementType: "freelance",
     liveUrl: "https://www.solara.in/",
   },

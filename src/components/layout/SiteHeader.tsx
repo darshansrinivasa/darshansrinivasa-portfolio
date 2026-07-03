@@ -74,7 +74,7 @@ export function SiteHeader({
 
           <a
             href={site.resume.href}
-            download
+            download={site.resume.fileName}
             className="bg-primary px-6 py-2 font-label-md text-label-md text-on-primary rounded-full transition-all duration-200 hover:opacity-80 active:scale-95"
           >
             {site.resume.label}

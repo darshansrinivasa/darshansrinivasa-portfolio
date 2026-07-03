@@ -387,47 +387,69 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
   },
-  // {
-  //   slug: "solara-storefront",
-  //   summary:
-  //     "Homepage revamp and PDP preorder template build for Solara, a D2C kitchen and home brand — lifting storefront performance from 36 to 92.",
-  //   eyebrow: "Freelance · D2C",
-  //   brands: [{ name: "Solara", url: "https://www.solara.in/" }],
-  //   techStack: ["Liquid", "JavaScript", "TailwindCSS", "Shopify Online Store 2.0"],
-  //   liveUrl: "https://www.solara.in/",
-  //   phases: [
-  //     {
-  //       label: "Problem",
-  //       title: "Slow homepage and missing preorder flow",
-  //       body: "Solara's live storefront had a slow, underperforming homepage and no dedicated product page template for preorder launches.",
-  //     },
-  //     {
-  //       label: "Action",
-  //       title: "Homepage revamp and preorder PDP build",
-  //       body: "Revamped the homepage for speed and conversion, and built a custom PDP preorder template to support upcoming product launches.",
-  //       highlights: [
-  //         {
-  //           icon: "speed",
-  //           title: "Homepage revamp",
-  //           description:
-  //             "Redesigned and optimized the homepage — refining Liquid templates, assets, and script loading to lift performance from 36 to 92.",
-  //         },
-  //         {
-  //           icon: "shopping_bag",
-  //           title: "PDP preorder template",
-  //           description:
-  //             "Built a dedicated product page template for preorder flows, tailored to Solara's kitchen and home product launches.",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       label: "Result",
-  //       title: "Faster storefront with preorder-ready PDPs",
-  //       body: "Delivered a significantly faster homepage and a live preorder product page template, improving the shopping experience for kitchen, cookware, and home appliance customers across India.",
-  //     },
-  //   ],
-  //   metrics: [{ value: "36→92", label: "Homepage performance score" }],
-  // },
+  {
+    slug: "storefront-theme-revamps",
+    summary:
+      "Theme revamps for D2C storefronts — site speed optimization, homepage performance improvements, and custom PDP templates for preorder launches, starting with Solara, a kitchen and home brand.",
+    eyebrow: "Theme Revamp",
+    heroImage: {
+      src: "/images/revamp-case-study.png",
+      alt: "Solara case study screenshot",
+    },
+    brands: [{ name: "Solara", url: "https://www.solara.in/" }],
+    techStack: [
+      "Liquid",
+      "JavaScript",
+      "TailwindCSS",
+      "Site Speed Optimization",
+      "Shopify Online Store 2.0",
+    ],
+    // liveUrl: "https://www.solara.in/",
+    phases: [
+      {
+        label: "Problem",
+        title: "Underperforming themes blocking growth",
+        body: "D2C brands on Shopify often outgrow their original theme — slow homepages, bloated assets, and missing page templates for new launch flows like preorders. Solara's live storefront had a homepage scoring 36 on performance metrics and no dedicated product page template for preorder campaigns.",
+      },
+      {
+        label: "Action",
+        title: "Targeted theme revamp and template builds",
+        body: "Revamped Solara's homepage for speed and conversion with focused site speed optimization — auditing render-blocking assets, deferring non-critical scripts, and optimizing image delivery — then built a custom PDP preorder template to support upcoming kitchen and home product launches.",
+        highlights: [
+          {
+            icon: "speed",
+            title: "Site speed optimization",
+            description:
+              "Audited and optimized the Solara storefront for Core Web Vitals — reducing render-blocking resources, lazy-loading below-the-fold media, and tightening Liquid output to lift homepage performance from 36 to 92.",
+          },
+          {
+            icon: "home",
+            title: "Homepage performance revamp",
+            description:
+              "Redesigned and optimized the Solara homepage — refining Liquid templates, image delivery, and script loading for faster first paint and smoother scrolling.",
+          },
+          {
+            icon: "shopping_bag",
+            title: "PDP preorder template",
+            description:
+              "Built a dedicated product page template for preorder flows, tailored to Solara's kitchen, cookware, and home appliance launches.",
+          },
+          {
+            icon: "design_services",
+            title: "Section architecture",
+            description:
+              "Restructured theme sections for faster content updates and a more maintainable Online Store 2.0 layout.",
+          },
+        ],
+      },
+      {
+        label: "Result",
+        title: "Faster storefront with launch-ready templates",
+        body: "Delivered a significantly faster Solara homepage through targeted site speed optimization and a live preorder product page template — improving load times and the shopping experience for kitchen, cookware, and home appliance customers across India.",
+      },
+    ],
+    metrics: [{ value: "36→92", label: "Solara homepage performance score" }],
+  },
 ];
 
 export function getCaseStudyBySlug(slug: string): CaseStudy | undefined {

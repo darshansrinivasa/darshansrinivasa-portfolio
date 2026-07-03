@@ -57,6 +57,17 @@ export const projects: Project[] = [
     gridSize: "large",
   },
   {
+    slug: "storefront-theme-revamps",
+    title: "Storefront Theme Revamps",
+    excerpt:
+      "Homepage and PDP theme revamps for D2C brands — optimizing Liquid templates, assets, and section architecture for speed and conversion.",
+    listExcerpt:
+      "Theme revamps for D2C storefronts including Solara — homepage performance lift from 36 to 92 and a custom PDP preorder template for kitchen and home product launches.",
+    tags: ["Shopify", "Liquid", "Performance"],
+    featured: false,
+    gridSize: "full",
+  },
+  {
     slug: "checkout-extensions-shopify-functions",
     title: "Checkout Extensions & Shopify Functions Suite",
     excerpt:
@@ -78,17 +89,6 @@ export const projects: Project[] = [
     featured: false,
     gridSize: "small",
   },
-  // {
-  //   slug: "solara-storefront",
-  //   title: "Solara — D2C Kitchen & Home Storefront",
-  //   excerpt:
-  //     "Homepage revamp that lifted performance from 36 to 92 and a PDP preorder template build for a D2C kitchen and home brand.",
-  //   listExcerpt:
-  //     "Homepage revamp lifting performance from 36 to 92, plus a PDP preorder template build for solara.in — a D2C kitchen, cookware, and home appliances brand.",
-  //   tags: ["Shopify", "Liquid", "Performance"],
-  //   featured: false,
-  //   gridSize: "small",
-  // },
 ];
 
 const featuredProjectOrder = [

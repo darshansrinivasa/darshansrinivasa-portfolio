@@ -16,6 +16,7 @@ export const site = {
   resume: {
     label: "Download Resume",
     href: "/resume.pdf",
+    fileName: "Darshan_S_Resume.pdf",
   },
   copyright: `© ${new Date().getFullYear()} Darshan S | Senior Shopify Developer`,
 } as const;

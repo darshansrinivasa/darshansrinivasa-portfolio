@@ -28,7 +28,7 @@ export function HomeHero() {
           </Link>
           <a
             href={site.resume.href}
-            download
+            download={site.resume.fileName}
             className="shrink-0 whitespace-nowrap px-6 py-4 text-center font-label-md text-label-md text-on-surface editorial-underline transition-all duration-300 hover:text-primary md:px-8"
           >
             {site.resume.label}

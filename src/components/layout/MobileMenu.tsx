@@ -100,7 +100,7 @@ export function MobileMenu({ isOpen, pathname, onClose }: MobileMenuProps) {
         <div className="nav-item-enter nav-item-6">
           <a
             href={site.resume.href}
-            download
+            download={site.resume.fileName}
             className="flex w-full items-center justify-center gap-2 bg-primary px-8 py-4 font-label-md text-label-md text-on-primary transition-transform duration-150 active:scale-95"
           >
             <span className="material-symbols-outlined text-lg">download</span>
