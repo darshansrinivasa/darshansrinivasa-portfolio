@@ -1,17 +1,16 @@
 "use client";
 
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
-import { trackOutboundLink, type OutboundLinkType } from "@/lib/analytics";
+import { trackSocialLinkClick, type SocialLinkType } from "@/lib/analytics";
 
 type TrackedLinkProps = ComponentPropsWithoutRef<"a"> & {
-  linkType: OutboundLinkType;
-  location: string;
+  linkType: SocialLinkType;
   children: ReactNode;
 };
 
+/** Tracks github_click, linkedin_click, email_click, or phone_click. */
 export function TrackedLink({
   linkType,
-  location,
   href,
   onClick,
   children,
@@ -21,9 +20,7 @@ export function TrackedLink({
     <a
       href={href}
       onClick={(event) => {
-        if (href) {
-          trackOutboundLink(linkType, href, location);
-        }
+        trackSocialLinkClick(linkType);
         onClick?.(event);
       }}
       {...props}

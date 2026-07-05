@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { TrackedCtaLink } from "@/components/analytics/TrackedCtaLink";
+import { TrackedOutboundLink } from "@/components/analytics/TrackedOutboundLink";
 import {
   aboutPage,
   education,
@@ -63,7 +64,7 @@ function ExperienceTimeline() {
                   </p>
                 ) : null}
                 {entry.liveUrl ? (
-                  <a
+                  <TrackedOutboundLink
                     href={entry.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -73,7 +74,7 @@ function ExperienceTimeline() {
                     <span className="material-symbols-outlined text-[16px]">
                       open_in_new
                     </span>
-                  </a>
+                  </TrackedOutboundLink>
                 ) : null}
               </div>
             ))}
@@ -138,12 +139,13 @@ export function AboutPageContent() {
           <p className="mb-stack-sm font-body-md text-body-md italic text-on-surface-variant md:font-body-lg md:text-body-lg">
             {aboutPage.cta.prompt}
           </p>
-          <Link
+          <TrackedCtaLink
             href={aboutPage.cta.href}
+            buttonText={aboutPage.cta.linkLabel}
             className="editorial-underline font-headline-lg-mobile text-headline-lg-mobile text-primary md:font-headline-lg md:text-headline-lg"
           >
             {aboutPage.cta.linkLabel}
-          </Link>
+          </TrackedCtaLink>
         </Container>
       </section>
     </main>

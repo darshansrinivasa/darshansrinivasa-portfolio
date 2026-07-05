@@ -1,5 +1,6 @@
-import Link from "next/link";
+import { TrackedProjectLink } from "@/components/analytics/TrackedProjectLink";
 import type { Project } from "@/content/projects";
+import { getProjectCategory } from "@/lib/project-analytics";
 import { ProjectThumbnail } from "@/components/ui/ProjectThumbnail";
 import { ProjectTag } from "@/components/ui/ProjectTag";
 
@@ -8,9 +9,13 @@ type FeaturedProjectCardProps = {
 };
 
 export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
+  const category = getProjectCategory(project);
+
   return (
-    <Link
+    <TrackedProjectLink
       href={`/projects/${project.slug}`}
+      projectName={project.title}
+      category={category}
       className="group block cursor-pointer"
     >
       <div className="relative mb-stack-sm aspect-video overflow-hidden rounded-lg bg-surface-container">
@@ -35,6 +40,6 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
           ))}
         </div>
       </div>
-    </Link>
+    </TrackedProjectLink>
   );
 }

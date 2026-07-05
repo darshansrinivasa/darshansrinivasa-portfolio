@@ -1,5 +1,6 @@
-import Link from "next/link";
+import { TrackedProjectLink } from "@/components/analytics/TrackedProjectLink";
 import type { Project } from "@/content/projects";
+import { getProjectCategory } from "@/lib/project-analytics";
 import { ProjectThumbnail } from "@/components/ui/ProjectThumbnail";
 import { ProjectTag } from "@/components/ui/ProjectTag";
 import { cn } from "@/lib/cn";
@@ -8,23 +9,28 @@ type ProjectListCardProps = {
   project: Project;
 };
 
-function CaseStudyLink({ slug }: { slug: string }) {
+function CaseStudyLink({ project }: { project: Project }) {
+  const category = getProjectCategory(project);
+
   return (
-    <Link
-      href={`/projects/${slug}`}
+    <TrackedProjectLink
+      href={`/projects/${project.slug}`}
+      projectName={project.title}
+      category={category}
       className="group/link inline-flex items-center gap-2 border-b border-primary font-label-md text-[12px] text-primary transition-all hover:border-b-2 md:text-label-md"
     >
       View Case Study
       <span className="material-symbols-outlined text-[18px] transition-transform group-hover/link:translate-x-1">
         arrow_forward
       </span>
-    </Link>
+    </TrackedProjectLink>
   );
 }
 
 export function ProjectListCard({ project }: ProjectListCardProps) {
   const isFull = project.gridSize === "full";
   const isLarge = project.gridSize === "large";
+  const category = getProjectCategory(project);
 
   if (isFull) {
     return (
@@ -49,15 +55,17 @@ export function ProjectListCard({ project }: ProjectListCardProps) {
           <p className="mb-stack-sm font-body-md text-body-md text-on-surface-variant">
             {project.listExcerpt}
           </p>
-          <CaseStudyLink slug={project.slug} />
+          <CaseStudyLink project={project} />
         </div>
       </article>
     );
   }
 
   return (
-    <Link
+    <TrackedProjectLink
       href={`/projects/${project.slug}`}
+      projectName={project.title}
+      category={category}
       className={cn(
         "project-card group cursor-pointer rounded-xl bg-surface-container-low p-5 transition-all duration-500 md:p-6",
         isLarge ? "md:col-span-8" : "md:col-span-4",
@@ -92,6 +100,6 @@ export function ProjectListCard({ project }: ProjectListCardProps) {
       >
         {project.listExcerpt}
       </p>
-    </Link>
+    </TrackedProjectLink>
   );
 }

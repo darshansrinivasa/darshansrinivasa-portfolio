@@ -1,7 +1,10 @@
-import Link from "next/link";
 import Image from "next/image";
+import { TrackedCtaLink } from "@/components/analytics/TrackedCtaLink";
+import { TrackedOutboundLink } from "@/components/analytics/TrackedOutboundLink";
+import { TrackedProjectLink } from "@/components/analytics/TrackedProjectLink";
 import type { CaseStudy } from "@/content/case-studies";
 import { getProjectBySlug } from "@/content/projects";
+import { getProjectCategory } from "@/lib/project-analytics";
 import { PhaseBadge } from "@/components/ui/PhaseBadge";
 import { ProjectImagePlaceholder } from "@/components/ui/ProjectImagePlaceholder";
 import { ProjectTag } from "@/components/ui/ProjectTag";
@@ -27,7 +30,7 @@ function KeyClientsBar({ brands }: { brands: CaseStudy["brands"] }) {
         {brands.map((brand) => (
           <li key={brand.name}>
             {brand.url ? (
-              <a
+              <TrackedOutboundLink
                 href={brand.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -37,7 +40,7 @@ function KeyClientsBar({ brands }: { brands: CaseStudy["brands"] }) {
                 )}
               >
                 {brand.name}
-              </a>
+              </TrackedOutboundLink>
             ) : (
               <span className={pillClass}>{brand.name}</span>
             )}
@@ -160,19 +163,22 @@ export function CaseStudyDetail({
   const problem = study.phases.find((phase) => phase.label === "Problem");
   const action = study.phases.find((phase) => phase.label === "Action");
   const result = study.phases.find((phase) => phase.label === "Result");
+  const nextProject = next ? getProjectBySlug(next.slug) : null;
+  const previousProject = previous ? getProjectBySlug(previous.slug) : null;
 
   return (
     <main className="flex-1 overflow-x-clip pb-section-gap pt-8 pb-stack-lg md:pt-0">
       <Container className="md:pt-stack-lg">
-        <Link
+        <TrackedCtaLink
           href="/projects"
+          buttonText="Back to Projects"
           className="group mb-stack-md inline-flex items-center gap-2 font-label-md text-[12px] text-on-surface-variant transition-colors duration-300 hover:text-primary md:text-label-md"
         >
           <span className="material-symbols-outlined text-[20px] transition-transform group-hover:-translate-x-1 md:text-[24px]">
             arrow_back
           </span>
           Back to Projects
-        </Link>
+        </TrackedCtaLink>
 
         <div className="grid min-w-0 grid-cols-1 items-start gap-stack-md md:grid-cols-12 md:items-end md:gap-grid-gutter">
           <div className="min-w-0 md:col-span-8">
@@ -185,7 +191,7 @@ export function CaseStudyDetail({
           </div>
           {study.liveUrl ? (
             <div className="w-full md:col-span-4 md:flex md:justify-end">
-              <a
+              <TrackedOutboundLink
                 href={study.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -193,7 +199,7 @@ export function CaseStudyDetail({
               >
                 <span className="material-symbols-outlined">open_in_new</span>
                 Live site
-              </a>
+              </TrackedOutboundLink>
             </div>
           ) : null}
         </div>
@@ -260,12 +266,14 @@ export function CaseStudyDetail({
                 <span className="shrink-0 font-label-md text-[12px] text-on-surface-variant md:text-label-md">
                   Next Project:
                 </span>
-                <Link
+                <TrackedProjectLink
                   href={`/projects/${next.slug}`}
+                  projectName={nextProject?.title ?? next.slug}
+                  category={nextProject ? getProjectCategory(nextProject) : "General"}
                   className="min-w-0 break-words font-headline-md text-[24px] leading-tight text-on-surface transition-colors hover:text-primary md:text-headline-md"
                 >
-                  {getProjectBySlug(next.slug)?.title ?? next.slug}
-                </Link>
+                  {nextProject?.title ?? next.slug}
+                </TrackedProjectLink>
               </>
             ) : (
               <span className="font-label-md text-[12px] text-on-surface-variant md:text-label-md">
@@ -280,19 +288,24 @@ export function CaseStudyDetail({
             )}
           >
             {previous ? (
-              <Link
+              <TrackedProjectLink
                 href={`/projects/${previous.slug}`}
+                projectName={previousProject?.title ?? previous.slug}
+                category={
+                  previousProject ? getProjectCategory(previousProject) : "General"
+                }
                 className="min-w-0 break-words font-label-md text-[12px] text-on-surface-variant transition-colors hover:text-primary md:text-label-md"
               >
-                ← {getProjectBySlug(previous.slug)?.title ?? previous.slug}
-              </Link>
+                ← {previousProject?.title ?? previous.slug}
+              </TrackedProjectLink>
             ) : null}
-            <Link
+            <TrackedCtaLink
               href="/projects"
+              buttonText="Back to Project Gallery"
               className="editorial-underline w-fit pb-1 font-label-md text-[12px] text-on-surface transition-all md:text-label-md"
             >
               Back to Project Gallery
-            </Link>
+            </TrackedCtaLink>
           </div>
         </div>
       </Container>

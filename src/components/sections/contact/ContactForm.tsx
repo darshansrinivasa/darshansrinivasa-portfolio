@@ -1,8 +1,12 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useRef, useState, type FormEvent } from "react";
+import { usePathname } from "next/navigation";
 import { contactPage } from "@/content/contact";
-import { trackContactFormSubmit } from "@/lib/analytics";
+import {
+  trackContactFormStart,
+  trackContactFormSubmit,
+} from "@/lib/analytics";
 import { contactProjectTypes } from "@/lib/contact-form";
 import type { ContactFormErrors, ContactProjectType } from "@/lib/contact-form";
 import { cn } from "@/lib/cn";
@@ -18,10 +22,21 @@ const initialFields = {
 };
 
 export function ContactForm() {
+  const pathname = usePathname();
+  const hasTrackedStart = useRef(false);
   const [fields, setFields] = useState(initialFields);
   const [errors, setErrors] = useState<ContactFormErrors>({});
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
+
+  function handleFormStart() {
+    if (hasTrackedStart.current) {
+      return;
+    }
+
+    hasTrackedStart.current = true;
+    trackContactFormStart();
+  }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -58,7 +73,7 @@ export function ContactForm() {
       }
 
       setFields(initialFields);
-      trackContactFormSubmit(fields.projectType);
+      trackContactFormSubmit(pathname);
       setStatus("success");
     } catch {
       setErrorMessage(contactPage.form.errorMessage);
@@ -94,7 +109,12 @@ export function ContactForm() {
   }
 
   return (
-    <form className="space-y-stack-sm md:space-y-stack-md" onSubmit={handleSubmit} noValidate>
+    <form
+      className="space-y-stack-sm md:space-y-stack-md"
+      onSubmit={handleSubmit}
+      onFocusCapture={handleFormStart}
+      noValidate
+    >
       <div className="space-y-base">
         <label
           className="font-label-md text-label-md text-on-surface-variant"

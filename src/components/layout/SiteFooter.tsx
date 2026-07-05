@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { TrackedCtaLink } from "@/components/analytics/TrackedCtaLink";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { site } from "@/content/site";
 import { Container } from "./Container";
@@ -20,7 +20,6 @@ export function SiteFooter() {
           <TrackedLink
             href={site.linkedIn.href}
             linkType="linkedin"
-            location="footer"
             target="_blank"
             rel="noopener noreferrer"
             className="font-label-md text-label-md text-on-secondary-container transition-all duration-300 hover:text-primary hover:underline"
@@ -31,7 +30,6 @@ export function SiteFooter() {
             <TrackedLink
               href={site.github.href}
               linkType="github"
-              location="footer"
               target="_blank"
               rel="noopener noreferrer"
               className="font-label-md text-label-md text-on-secondary-container transition-all duration-300 hover:text-primary hover:underline"
@@ -49,17 +47,17 @@ export function SiteFooter() {
           <TrackedLink
             href={`mailto:${site.email}`}
             linkType="email"
-            location="footer"
             className="font-label-md text-label-md text-on-secondary-container transition-all duration-300 hover:text-primary hover:underline"
           >
             Email
           </TrackedLink>
-          <Link
+          <TrackedCtaLink
             href="/contact"
+            buttonText="Contact"
             className="font-label-md text-label-md text-on-secondary-container transition-all duration-300 hover:text-primary hover:underline"
           >
             Contact
-          </Link>
+          </TrackedCtaLink>
         </div>
       </Container>
     </footer>

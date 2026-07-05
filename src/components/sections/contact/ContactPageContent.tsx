@@ -30,7 +30,6 @@ export function ContactPageContent() {
                 <TrackedLink
                   href={`mailto:${site.email}`}
                   linkType="email"
-                  location="contact_page"
                   className="break-all font-body-lg text-body-lg font-medium text-on-surface transition-colors duration-300 hover:text-primary md:break-normal md:font-headline-md md:text-headline-md"
                 >
                   {site.email}
@@ -43,7 +42,6 @@ export function ContactPageContent() {
                 <TrackedLink
                   href={site.linkedIn.href}
                   linkType="linkedin"
-                  location="contact_page"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-body-lg text-body-lg font-medium text-on-surface transition-colors duration-300 hover:text-primary md:font-headline-md md:text-headline-md"

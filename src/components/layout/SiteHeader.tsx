@@ -74,7 +74,6 @@ export function SiteHeader({
           </nav>
 
           <ResumeDownloadLink
-            location="header"
             className="bg-primary px-6 py-2 font-label-md text-label-md text-on-primary rounded-full transition-all duration-200 hover:opacity-80 active:scale-95"
           />
         </div>

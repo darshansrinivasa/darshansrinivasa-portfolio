@@ -101,7 +101,6 @@ export function MobileMenu({ isOpen, pathname, onClose }: MobileMenuProps) {
       <footer className="flex flex-col gap-stack-md bg-secondary-container/30 px-grid-margin py-stack-lg">
         <div className="nav-item-enter nav-item-6">
           <ResumeDownloadLink
-            location="mobile_menu"
             className="flex w-full items-center justify-center gap-2 bg-primary px-8 py-4 font-label-md text-label-md text-on-primary transition-transform duration-150 active:scale-95"
           >
             <span className="material-symbols-outlined text-lg">download</span>
@@ -117,7 +116,6 @@ export function MobileMenu({ isOpen, pathname, onClose }: MobileMenuProps) {
             <TrackedLink
               href={site.linkedIn.href}
               linkType="linkedin"
-              location="mobile_menu"
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors hover:text-primary"
@@ -128,7 +126,6 @@ export function MobileMenu({ isOpen, pathname, onClose }: MobileMenuProps) {
               <TrackedLink
                 href={site.github.href}
                 linkType="github"
-                location="mobile_menu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-colors hover:text-primary"

@@ -2,20 +2,18 @@
 
 import type { ComponentPropsWithoutRef, ReactNode } from "react";
 import { site } from "@/content/site";
-import {
-  trackResumeDownload,
-  type ResumeDownloadLocation,
-} from "@/lib/analytics";
+import { trackResumeDownload } from "@/lib/analytics";
 
 type ResumeDownloadLinkProps = ComponentPropsWithoutRef<"a"> & {
-  location: ResumeDownloadLocation;
   children?: ReactNode;
+  /** Visible label sent to GTM — defaults to site.resume.label */
+  buttonText?: string;
 };
 
 export function ResumeDownloadLink({
-  location,
   onClick,
   children = site.resume.label,
+  buttonText = site.resume.label,
   ...props
 }: ResumeDownloadLinkProps) {
   return (
@@ -23,7 +21,10 @@ export function ResumeDownloadLink({
       href={site.resume.href}
       download={site.resume.fileName}
       onClick={(event) => {
-        trackResumeDownload(location);
+        trackResumeDownload({
+          file_name: site.resume.fileName,
+          button_text: buttonText,
+        });
         onClick?.(event);
       }}
       {...props}

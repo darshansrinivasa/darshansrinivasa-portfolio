@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { TrackedCtaLink } from "@/components/analytics/TrackedCtaLink";
 import { homeFeatured } from "@/content/home";
 import { getFeaturedProjects } from "@/content/projects";
 import { FeaturedProjectCard } from "@/components/cards/FeaturedProjectCard";
@@ -19,12 +19,13 @@ export function HomeFeaturedProjects() {
               {homeFeatured.title}
             </h2>
           </div>
-          <Link
+          <TrackedCtaLink
             href={homeFeatured.archiveHref}
+            buttonText={homeFeatured.archiveLabel}
             className="mb-2 shrink-0 font-label-md text-[12px] editorial-underline md:text-label-md"
           >
             {homeFeatured.archiveLabel}
-          </Link>
+          </TrackedCtaLink>
         </div>
 
         <div className="grid grid-cols-1 gap-stack-lg md:grid-cols-3 md:gap-grid-gutter">
