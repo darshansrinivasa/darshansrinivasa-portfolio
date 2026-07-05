@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ResumeDownloadLink } from "@/components/analytics/ResumeDownloadLink";
 import { site } from "@/content/site";
 import { mainNav, isNavActive } from "@/content/navigation";
 import { cn } from "@/lib/cn";
@@ -72,13 +73,10 @@ export function SiteHeader({
             })}
           </nav>
 
-          <a
-            href={site.resume.href}
-            download={site.resume.fileName}
+          <ResumeDownloadLink
+            location="header"
             className="bg-primary px-6 py-2 font-label-md text-label-md text-on-primary rounded-full transition-all duration-200 hover:opacity-80 active:scale-95"
-          >
-            {site.resume.label}
-          </a>
+          />
         </div>
       </Container>
     </header>

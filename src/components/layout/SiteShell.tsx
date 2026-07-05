@@ -2,6 +2,7 @@
 
 import { useEffect, useState, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
+import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { SiteHeader } from "./SiteHeader";
 import { SiteFooter } from "./SiteFooter";
 import { MobileMenu } from "./MobileMenu";
@@ -31,6 +32,7 @@ export function SiteShell({ children }: SiteShellProps) {
 
   return (
     <>
+      <PageViewTracker />
       <SiteHeader
         pathname={pathname}
         isScrolled={isScrolled}

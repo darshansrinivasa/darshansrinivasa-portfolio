@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { contactPage } from "@/content/contact";
+import { trackContactFormSubmit } from "@/lib/analytics";
 import { contactProjectTypes } from "@/lib/contact-form";
 import type { ContactFormErrors, ContactProjectType } from "@/lib/contact-form";
 import { cn } from "@/lib/cn";
@@ -57,6 +58,7 @@ export function ContactForm() {
       }
 
       setFields(initialFields);
+      trackContactFormSubmit(fields.projectType);
       setStatus("success");
     } catch {
       setErrorMessage(contactPage.form.errorMessage);

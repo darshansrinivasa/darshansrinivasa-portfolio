@@ -1,3 +1,4 @@
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { contactPage } from "@/content/contact";
 import { site } from "@/content/site";
 import { Container } from "@/components/layout/Container";
@@ -26,25 +27,29 @@ export function ContactPageContent() {
                 <p className="mb-1.5 font-label-md text-[12px] uppercase tracking-widest text-outline md:mb-1 md:text-label-md">
                   {contactPage.emailLabel}
                 </p>
-                <a
+                <TrackedLink
                   href={`mailto:${site.email}`}
+                  linkType="email"
+                  location="contact_page"
                   className="break-all font-body-lg text-body-lg font-medium text-on-surface transition-colors duration-300 hover:text-primary md:break-normal md:font-headline-md md:text-headline-md"
                 >
                   {site.email}
-                </a>
+                </TrackedLink>
               </div>
               <div>
                 <p className="mb-1.5 font-label-md text-[12px] uppercase tracking-widest text-outline md:mb-1 md:text-label-md">
                   {contactPage.linkedInLabel}
                 </p>
-                <a
+                <TrackedLink
                   href={site.linkedIn.href}
+                  linkType="linkedin"
+                  location="contact_page"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-body-lg text-body-lg font-medium text-on-surface transition-colors duration-300 hover:text-primary md:font-headline-md md:text-headline-md"
                 >
                   LinkedIn / in/darshan-srinivasa
-                </a>
+                </TrackedLink>
               </div>
               <div className="pt-stack-sm">
                 <div className="flex items-center justify-center gap-base text-on-surface-variant md:justify-start">

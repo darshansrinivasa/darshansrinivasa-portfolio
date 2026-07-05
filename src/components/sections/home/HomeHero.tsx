@@ -1,6 +1,6 @@
 import Link from "next/link";
+import { ResumeDownloadLink } from "@/components/analytics/ResumeDownloadLink";
 import { homeHero } from "@/content/home";
-import { site } from "@/content/site";
 import { Container } from "@/components/layout/Container";
 
 export function HomeHero() {
@@ -26,13 +26,10 @@ export function HomeHero() {
             View Projects
             <span className="material-symbols-outlined">arrow_forward</span>
           </Link>
-          <a
-            href={site.resume.href}
-            download={site.resume.fileName}
+          <ResumeDownloadLink
+            location="hero"
             className="shrink-0 whitespace-nowrap px-6 py-4 text-center font-label-md text-label-md text-on-surface editorial-underline transition-all duration-300 hover:text-primary md:px-8"
-          >
-            {site.resume.label}
-          </a>
+          />
         </div>
       </Container>
     </section>

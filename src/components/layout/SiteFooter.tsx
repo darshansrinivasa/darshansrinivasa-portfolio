@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { site } from "@/content/site";
 import { Container } from "./Container";
 
@@ -16,23 +17,27 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-6 flex gap-stack-md md:mt-0">
-          <a
+          <TrackedLink
             href={site.linkedIn.href}
+            linkType="linkedin"
+            location="footer"
             target="_blank"
             rel="noopener noreferrer"
             className="font-label-md text-label-md text-on-secondary-container transition-all duration-300 hover:text-primary hover:underline"
           >
             {site.linkedIn.label}
-          </a>
+          </TrackedLink>
           {site.github.href ? (
-            <a
+            <TrackedLink
               href={site.github.href}
+              linkType="github"
+              location="footer"
               target="_blank"
               rel="noopener noreferrer"
               className="font-label-md text-label-md text-on-secondary-container transition-all duration-300 hover:text-primary hover:underline"
             >
               {site.github.label}
-            </a>
+            </TrackedLink>
           ) : (
             <span
               className="font-label-md text-label-md text-on-secondary-container opacity-60"
@@ -41,12 +46,14 @@ export function SiteFooter() {
               {site.github.label}
             </span>
           )}
-          <a
+          <TrackedLink
             href={`mailto:${site.email}`}
+            linkType="email"
+            location="footer"
             className="font-label-md text-label-md text-on-secondary-container transition-all duration-300 hover:text-primary hover:underline"
           >
             Email
-          </a>
+          </TrackedLink>
           <Link
             href="/contact"
             className="font-label-md text-label-md text-on-secondary-container transition-all duration-300 hover:text-primary hover:underline"

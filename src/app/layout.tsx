@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleTagManager } from "@/components/analytics/GoogleTagManager";
 import { SiteShell } from "@/components/layout/SiteShell";
 import { site } from "@/content/site";
 import { fontVariables } from "@/lib/fonts";
@@ -32,6 +33,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-full flex flex-col font-body-md text-body-md text-on-surface bg-background selection:bg-primary-fixed selection:text-on-primary-fixed">
+        <GoogleTagManager />
         <SiteShell>{children}</SiteShell>
       </body>
     </html>
